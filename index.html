@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<!-- ABC Screen Printing — Premium Auto-Flip Guide (GitHub Pages ready, single file).
+     DETAILS BADALNE KE LIYE: neeche-right "Edit info" dabao → Apply → "Download index.html" → GitHub par upload. -->
+<html lang="en" data-theme="crimson">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ABC Screen Printing — The Craft of Custom Printing (Interactive Guide)</title>
+<meta name="description" content="Flip through the ABC Screen Printing business guide: real screen printing, embroidery, flyers and uniforms for local businesses. Auto-flip brochure, free on GitHub Pages.">
+<meta name="theme-color" content="#191512">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ABC Screen Printing — The Craft of Custom Printing">
+<meta property="og:description" content="T-shirts, embroidery, flyers & uniforms. An auto-flipping visual guide for local businesses.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23B31226'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' font-weight='bold' text-anchor='middle' fill='white'%3EA%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#191512; --ink2:#2A241E;
+  --paper:#EFE7D9; --cream:#FDFBF6; --card:#FFFFFF;
+  --line:#E6DAC5; --muted:#6F6659; --faint:#9A9084;
+  --shadow:0 1px 2px rgba(25,21,18,.05),0 10px 30px -18px rgba(25,21,18,.35);
+}
+html[data-theme="crimson"]{--brand:#B31226;--brand-d:#7C0C1A;--brand-tint:#F9E9EB;--gold:#C9A227;}
+html[data-theme="forest"]{--brand:#1E5B3F;--brand-d:#123B28;--brand-tint:#E7F1EA;--gold:#C9A227;}
+html[data-theme="navy"]{--brand:#1E3A5F;--brand-d:#132741;--brand-tint:#E8EFF6;--gold:#C9A227;}
+html[data-theme="onyx"]{--brand:#23201B;--brand-d:#100E0B;--brand-tint:#ECE8E0;--gold:#B98A1F;}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:Inter,Arial,sans-serif;color:var(--ink);
+  background:
+    radial-gradient(1100px 500px at 50% -8%,#FBF6EC 0%,rgba(251,246,236,0) 60%),
+    radial-gradient(900px 600px at 85% 110%,#DCCFB4 0%,rgba(220,207,180,0) 55%),
+    linear-gradient(180deg,#F1EADB 0%,#E7DCC6 60%,#DCD0B6 100%);
+  min-height:100vh;display:flex;flex-direction:column;align-items:center;
+  padding:4px 8px 28px;
+}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;opacity:.5;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.45 0 0 0 0 0.4 0 0 0 0 0.33 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+/* ---------- top masthead ---------- */
+.mast{width:min(900px,100%);display:flex;align-items:center;gap:14px;margin:0 auto 14px;position:relative;z-index:2}
+.mast .rule{flex:1;height:1px;background:linear-gradient(90deg,transparent,#B9A888,transparent)}
+.mast .word{font-size:11px;letter-spacing:4px;font-weight:700;color:#6B5F4E;text-transform:uppercase;white-space:nowrap}
+.mast .word b{color:var(--brand)}
+/* ---------- stage ---------- */
+#outer{margin:0 auto;position:relative;z-index:1;display:flex;justify-content:center}
+#wrap{transform-origin:0 0;position:relative}
+.stage{width:900px;height:600px;position:relative;overflow:hidden;font-family:Inter,Arial,sans-serif}
+.stage .deck{position:absolute;left:130px;top:535px;width:640px;height:46px;background:radial-gradient(ellipse at center,rgba(25,21,18,.35) 0%,rgba(25,21,18,0) 70%)}
+@keyframes rise{0%{transform:translateY(200px) rotateX(55deg) rotateZ(-8deg) scale(.5);opacity:0}60%{opacity:1}100%{transform:none;opacity:1}}
+.enter{animation:rise 1.5s cubic-bezier(.2,.8,.2,1) both;position:absolute;left:0;top:0;width:900px;height:700px}
+/* ---------- book geometry ---------- */
+.book{position:absolute;left:450px;top:50px;width:360px;height:500px;perspective:2200px;transition:transform 1s cubic-bezier(.645,.045,.355,1)}
+.book.closed{transform:translateX(-180px)}.book.end{transform:translateX(180px)}
+.book::before{content:'';position:absolute;left:-9px;top:6px;bottom:6px;width:18px;border-radius:8px;
+  background:linear-gradient(90deg,#0d0b09,#3a332a 45%,#0d0b09);opacity:.9}
+.leaf{position:absolute;left:0;top:0;width:360px;height:500px;transform-origin:left center;transform-style:preserve-3d;
+  transition:transform 1s cubic-bezier(.645,.045,.355,1),z-index 0s .5s;cursor:pointer}
+.leaf:focus-visible{outline:3px solid var(--brand);outline-offset:5px;border-radius:10px}
+.leaf{scroll-margin:0}
+.leaf:focus{outline:none}
+/* stage never pushes the page taller than the screen */
+html{overflow-x:hidden}
+#outer{max-width:100%}
+.l1{z-index:6}.l2{z-index:5}.l3{z-index:4}.l4{z-index:3}.l5{z-index:2}
+.l1.f{transform:rotateY(-180deg);z-index:1}.l2.f{transform:rotateY(-180deg);z-index:2}
+.l3.f{transform:rotateY(-180deg);z-index:3}.l4.f{transform:rotateY(-180deg);z-index:4}
+.l5.f{transform:rotateY(-180deg);z-index:5}
+.face{position:absolute;left:0;top:0;width:360px;height:500px;box-sizing:border-box;display:flex;flex-direction:column;overflow:hidden;
+  backface-visibility:hidden;-webkit-backface-visibility:hidden;color:var(--ink);background:var(--cream);
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.face.rear{transform:rotateY(180deg) translateZ(0);border-radius:10px 4px 4px 10px;box-shadow:inset -26px 0 30px -22px rgba(25,21,18,.45)}
+.face.front{border-radius:4px 10px 10px 4px;box-shadow:inset 26px 0 30px -22px rgba(25,21,18,.45),6px 10px 26px -12px rgba(25,21,18,.4)}
+/* paper edge */
+.face::after{content:'';position:absolute;top:0;bottom:0;width:14px;pointer-events:none}
+.face.front::after{left:0;background:linear-gradient(90deg,rgba(25,21,18,.14),transparent)}
+.face.rear::after{right:0;background:linear-gradient(-90deg,rgba(25,21,18,.14),transparent)}
+/* ---------- page furniture ---------- */
+.eyebrow{font-size:10.5px;letter-spacing:2.6px;font-weight:800;text-transform:uppercase;color:var(--brand);display:flex;align-items:center;gap:8px}
+.eyebrow::before{content:'';width:22px;height:2px;background:var(--gold);border-radius:2px;flex:none}
+h3.serif{font-family:Fraunces,Georgia,serif;font-weight:600;font-size:25px;line-height:1.12;margin:7px 0 0;letter-spacing:-.01em}
+h3.serif em{font-style:italic;color:var(--brand)}
+.bd{padding:16px 22px 0;display:flex;flex-direction:column;gap:10px;flex:1}
+.in{margin:1px 0;font-size:12.5px;line-height:1.55;color:var(--muted)}
+/* real photo hero */
+.ph{position:relative;height:150px;margin:0;overflow:hidden;background:#DCD2BC;flex:none}
+.ph.tall{height:170px}.ph.short{height:104px}
+.ph img{width:100%;height:100%;object-fit:cover;display:block;transform:translateZ(0)}
+.ph::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(16,12,8,0) 42%,rgba(16,12,8,.5));pointer-events:none}
+.ph .tag{position:absolute;left:16px;bottom:11px;z-index:2;display:inline-flex;align-items:center;gap:7px;
+  font-size:10.5px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:#FFF8EA;
+  background:rgba(16,12,8,.55);border:1px solid rgba(255,255,255,.28);padding:6px 12px;border-radius:999px;backdrop-filter:blur(4px)}
+.ph .tag i{width:7px;height:7px;border-radius:50%;background:var(--gold);flex:none}
+/* elegant rows */
+.row{display:flex;gap:11px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px;box-shadow:var(--shadow)}
+.bullet{width:32px;height:32px;border-radius:10px;background:var(--ink);color:#F5EFDF;display:flex;align-items:center;justify-content:center;flex:none}
+.bullet.brand{background:var(--brand);color:#FFF6EA}
+.bullet svg{width:17px;height:17px}
+.rh{font-weight:700;font-size:13px;letter-spacing:-.01em}.rt{font-size:12px;color:var(--muted);line-height:1.45;margin-top:1px}
+/* steps */
+.step{display:flex;gap:12px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:9px 12px;box-shadow:var(--shadow);position:relative}
+.step .num{font-family:Fraunces,serif;font-size:21px;font-weight:700;color:var(--brand);line-height:1;min-width:30px;text-align:center}
+.step .num small{display:block;font-family:Inter;font-size:8.5px;letter-spacing:2px;color:var(--faint);font-weight:800;margin-top:2px}
+/* chips + notes */
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.chip{background:var(--brand-tint);color:var(--brand-d);border:1px solid color-mix(in srgb,var(--brand) 22%,white);font-weight:700;font-size:11.5px;padding:6px 12px;border-radius:999px}
+.note{border-left:3px solid var(--gold);padding:9px 12px;background:#FFFDF7;border:1px solid var(--line);border-left-width:3px;font-size:11.8px;color:var(--muted);line-height:1.5;border-radius:0 10px 10px 0}
+/* folio (page numbers hidden) */
+.pn{display:none}
+.pn.keep{display:flex;margin-top:auto;font-size:10px;letter-spacing:2.4px;font-weight:700;color:var(--faint);
+  text-transform:uppercase;padding:10px 22px 14px;align-items:center;gap:10px;justify-content:flex-end}
+.bd{padding-bottom:16px;min-height:0;overflow:hidden}
+/* ---------- covers ---------- */
+.cov{position:relative;color:#FFF6E9;padding:0;justify-content:flex-end}
+.cov .bg{position:absolute;inset:0}.cov .bg img{width:100%;height:100%;object-fit:cover}
+.cov .bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(14,10,7,.25) 0%,rgba(14,10,7,.55) 46%,rgba(14,10,7,.92) 100%)}
+.cov .inner{position:relative;z-index:2;padding:28px 28px 24px;display:flex;flex-direction:column;gap:11px}
+.cov .kicker{display:flex;align-items:center;gap:9px;font-size:10.5px;letter-spacing:3px;font-weight:800;text-transform:uppercase;color:#EFD9A7}
+.cov .kicker::before{content:'';width:26px;height:2px;background:var(--gold)}
+.cov h2{font-family:Fraunces,serif;font-weight:600;font-size:36px;line-height:1.04;margin:0;letter-spacing:-.015em}
+.cov h2 em{font-style:italic;color:#F3C969}
+.cov .sub{font-size:12.8px;line-height:1.55;color:#E7DCC6;margin:0}
+.cov .chipsline{display:flex;gap:7px;flex-wrap:wrap}
+.cov .chipsline span{font-size:10.5px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;border:1px solid rgba(255,244,214,.5);color:#FFF3D6;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.08)}
+.cov .openrow{display:flex;align-items:center;gap:12px;margin-top:3px}
+.btn-open{border:0;cursor:pointer;background:#F5EFDF;color:#191512;font:800 13px Inter,sans-serif;padding:12px 22px;border-radius:999px;display:inline-flex;align-items:center;gap:8px}
+.btn-open:hover{background:var(--gold);color:#191512}
+.cov .hint{font-size:10.5px;letter-spacing:2.2px;font-weight:700;color:#CBBFA6;text-transform:uppercase}
+.cov .brandbig{font-weight:800;font-size:23px;letter-spacing:.5px;color:#fff;display:flex;align-items:center;gap:10px;text-shadow:0 2px 16px rgba(0,0,0,.55)}
+.cov .brandbig::before{content:'';width:30px;height:3px;background:var(--gold);border-radius:2px;flex:none}
+.cov h2.bighead{font-size:37px;font-weight:700;line-height:1.06}
+.cov .sub.small{font-size:12px}
+.cov .guideline{margin:0;font-size:11.5px;font-style:italic;color:#D9CBAE;line-height:1.5}
+.cov .covercontact{display:flex;flex-direction:column;gap:3px;border-top:1px solid rgba(239,217,167,.32);padding-top:10px;margin-top:2px;font-size:11px;font-weight:600;letter-spacing:.4px;color:#EFE3C6}
+.bd.centered{text-align:center}
+.bd.centered .eyebrow{justify-content:center}
+.bd.centered .note{text-align:left}
+.cov .hello{font-family:Fraunces,Georgia,serif;font-style:italic;font-weight:600;font-size:23px;color:#F3C969;margin:0;letter-spacing:-.01em}
+.cov .turn{font-size:10.5px;letter-spacing:2px;font-weight:800;text-transform:uppercase;color:#EFD9A7;border-top:1px solid rgba(239,217,167,.32);padding-top:11px;margin-top:2px}
+.bd.tight{gap:7px;padding-top:12px}
+.bd.tight h3.serif{font-size:22px}
+.ph.xs{height:92px}
+.cols2{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.mini{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:7px 9px;box-shadow:var(--shadow)}
+.mini b{display:block;font-size:11.3px;letter-spacing:-.01em}
+.mini b .tk{color:var(--brand);font-weight:800;margin-right:3px}
+.mini span{display:block;font-size:10.6px;color:var(--muted);line-height:1.42;margin-top:1px}
+.in.small{font-size:11.8px}
+.l6{z-index:1}
+.l6.f{transform:rotateY(-180deg);z-index:6}
+.cov .coverspeech{margin:0;font-size:14.5px;line-height:1.62;color:#FFFDF4;font-weight:500;text-shadow:0 1px 14px rgba(0,0,0,.55)}
+.cov .coverspeech [data-biz]{font-weight:800;color:#FFFFFF}
+.cov .hellolead{font-weight:800;color:#FFFFFF}
+.cov .inner{padding-bottom:30px}
+.cov .brandbig{margin-bottom:2px}
+/* promo collage page */
+.promo-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:10px 14px 0}
+.promo-cell{position:relative;margin:0;height:102px;border-radius:10px;overflow:hidden;border:1px solid var(--line);background:#DCD2BC}
+.promo-cell img{width:100%;height:100%;object-fit:cover;display:block}
+.promo-cell figcaption{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-4deg);background:rgba(253,251,246,.95);color:var(--ink);font:800 10px Inter,Arial,sans-serif;letter-spacing:1px;padding:5px 10px;border-radius:7px;box-shadow:0 2px 10px rgba(0,0,0,.3);white-space:nowrap;border:1.5px dashed var(--brand)}
+.promo-name{position:absolute;left:6px;bottom:6px;background:rgba(16,12,8,.68);color:#FFF3D6;font:700 9px Inter,Arial,sans-serif;letter-spacing:1.2px;text-transform:uppercase;padding:3px 8px;border-radius:99px}
+/* bumper offer page */
+.offer{background:#1B0B0E!important;color:#F7EBD2;position:relative}
+.offer .offerbg{position:absolute;inset:0;z-index:0}
+.offer .offerbg img{width:100%;height:100%;object-fit:cover;filter:saturate(.85)}
+.offer .offerbg::after{content:'';position:absolute;inset:0;background:linear-gradient(175deg,rgba(42,14,19,.42) 0%,rgba(74,17,25,.5) 45%,rgba(16,7,9,.68) 100%)}
+.offer .ribbon,.offer .price b,.offer h3.serif{text-shadow:0 2px 12px rgba(0,0,0,.6)}
+.offer .in.small{text-shadow:0 1px 8px rgba(0,0,0,.75)}
+.offer-grid div{background:rgba(18,8,10,.55);backdrop-filter:blur(3px)}
+.offer-why{background:rgba(18,8,10,.6);backdrop-filter:blur(3px)}
+/* duo image strip */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:4px;flex:none}
+.duo figure{position:relative;margin:0;height:104px;overflow:hidden;background:#DCD2BC}
+.duo img{width:100%;height:100%;object-fit:cover;display:block}
+.duo figure::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(16,12,8,0) 40%,rgba(16,12,8,.6))}
+.duo figcaption{position:absolute;left:8px;bottom:7px;z-index:2;font:700 9px Inter,Arial,sans-serif;letter-spacing:1.2px;text-transform:uppercase;color:#FFF3D6;background:rgba(16,12,8,.6);border:1px solid rgba(255,255,255,.25);padding:4px 9px;border-radius:999px}
+.offer .bd{padding-top:12px;position:relative;z-index:1}
+.offer .pn{position:relative;z-index:1}
+.offer .ribbon{display:inline-block;align-self:flex-start;background:var(--gold);color:#241505;font:800 10px Inter,Arial,sans-serif;letter-spacing:2.2px;text-transform:uppercase;padding:6px 14px;border-radius:999px}
+.offer h3.serif{color:#FFF6E2;font-size:23px}
+.offer h3.serif em{color:#F3C969}
+.offer .price{display:flex;align-items:baseline;gap:8px;margin-top:2px}
+.offer .price b{font-family:Fraunces,Georgia,serif;font-size:44px;font-weight:700;color:#fff;line-height:1}
+.offer .price span{font-size:11px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:#EFD9A7}
+.offer-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-top:2px}
+.offer-grid div{background:rgba(255,246,222,.08);border:1px solid rgba(239,217,167,.3);border-radius:9px;font-size:10.8px;font-weight:600;padding:6px 9px;line-height:1.3}
+.offer-grid div i{font-style:normal;color:#F3C969;font-weight:800;margin-right:4px}
+.offer-why{background:rgba(201,162,39,.14);border:1px dashed rgba(239,217,167,.55);border-radius:10px;font-size:11px;line-height:1.55;padding:8px 11px;color:#F3E6C6}
+/* back cover */
+.back{background:linear-gradient(165deg,#4A4A4E,#333337 55%,#2A2A2D 100%);color:#F0EDE6}
+.back{position:relative}
+.back .backbg{position:absolute;inset:0;z-index:0}
+.back .backbg img{width:100%;height:100%;object-fit:cover;opacity:.22;filter:grayscale(.3)}
+.back .backbg::after{content:'';position:absolute;inset:0;background:linear-gradient(170deg,rgba(74,74,78,.82),rgba(42,42,45,.9))}
+.back .bd{position:relative;z-index:1;justify-content:flex-start;padding-top:18px}
+.contact{background:rgba(255,248,232,.06);border:1px solid rgba(239,217,167,.28);border-radius:14px;padding:13px 15px;font-size:12.5px;line-height:1.65}
+.contact b{display:block;font-size:10.5px;letter-spacing:2.4px;text-transform:uppercase;color:#EFD9A7;margin-bottom:5px}
+.contact [data-biz]{color:#FFF6E4}
+.cta{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:#F5EFDF;color:#7C0C1A;text-decoration:none;font-weight:800;font-size:14px;padding:13px 22px;border-radius:12px}
+.cta:hover{background:var(--gold);color:#191512}
+/* arrows + controls */
+.ar{position:absolute;top:330px;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:rgba(253,251,246,.92);color:var(--ink);font-size:19px;cursor:pointer;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:center;z-index:20;line-height:1}
+.ar:hover{background:var(--ink);color:#F5EFDF;border-color:var(--ink)}
+.ar:focus-visible,.pill:focus-visible,.dot:focus-visible,.seg:focus-visible{outline:3px solid var(--brand);outline-offset:2px}
+/* ---------- single-line top control bar ---------- */
+.topbar{width:min(1180px,100%);position:relative;z-index:3;margin:0 auto 2px;display:flex;align-items:center;
+  gap:12px;flex-wrap:wrap;justify-content:center;background:none;border:0;padding:2px 10px;box-shadow:none}
+.topbar .pill{padding:7px 14px;font-size:11.5px}
+.topbar .seg button{padding:5px 10px;font-size:11px}
+.topbar .dot{width:9px;height:9px}
+.controls{display:flex;justify-content:center;align-items:center;gap:12px;flex-wrap:wrap}
+.pill{border:0;border-radius:999px;background:var(--ink);color:#F5EFDF;font:700 12.5px Inter,sans-serif;padding:10px 18px;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+.pill:hover{background:var(--brand)}
+.pill .dotlive{width:8px;height:8px;border-radius:50%;background:#7EE2A8}
+.pill.paused .dotlive{background:#E5B93E}
+.seg{display:flex;background:rgba(25,21,18,.07);border:1px solid var(--line);border-radius:999px;padding:3px;gap:2px}
+.seg button{border:0;background:transparent;font:700 11.5px Inter,sans-serif;color:var(--muted);padding:6px 12px;border-radius:999px;cursor:pointer}
+.seg button.on{background:var(--ink);color:#F5EFDF}
+.dots{display:flex;gap:8px;align-items:center}
+.dot{width:11px;height:11px;border-radius:50%;border:1.5px solid var(--ink);background:transparent;cursor:pointer;padding:0;opacity:.55}
+.dot.on{background:var(--ink);opacity:1;transform:scale(1.15)}
+.progress{position:relative;width:100%;max-width:560px;margin:0 auto;height:3px;background:rgba(25,21,18,.12);border-radius:99px;overflow:hidden}
+.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--brand));border-radius:99px}
+.caption{text-align:center;font-size:12.5px;color:#6B5F4E;margin-top:12px}
+.caption b{color:var(--ink)}
+/* caption header inside stage */
+.stagehead{display:none}
+/* ---------- below-stage strip ---------- */
+.strip{width:min(900px,100%);position:relative;z-index:2;margin-top:16px;background:rgba(253,251,246,.75);border:1px solid var(--line);
+  border-radius:18px;padding:18px 20px;box-shadow:var(--shadow);backdrop-filter:blur(6px)}
+.strip h4{margin:0 0 4px;font-family:Fraunces,serif;font-size:20px;font-weight:600}
+.strip p{margin:0;font-size:13px;color:var(--muted);line-height:1.6}
+.strip ol{margin:10px 0 0;padding-left:20px;font-size:12.8px;color:#4A443A;line-height:1.7}
+.strip code{background:#191512;color:#F3E9CF;font-size:11.5px;padding:2px 8px;border-radius:6px}
+.credits{width:min(900px,100%);text-align:center;font-size:11.5px;color:#8A7F6E;margin-top:12px;position:relative;z-index:2}
+.credits a{color:var(--brand);text-decoration:none;font-weight:600}
+/* ---------- floating editor ---------- */
+#editFab{position:fixed;right:18px;bottom:18px;z-index:50;border:0;border-radius:999px;background:var(--ink);color:#F7F1E3;
+  font:700 13px Inter,sans-serif;padding:13px 20px;cursor:pointer;display:flex;align-items:center;gap:8px;box-shadow:0 10px 28px rgba(0,0,0,.35)}
+#editFab:hover{background:var(--brand)}
+#panel{position:fixed;right:18px;bottom:76px;z-index:50;width:min(348px,calc(100vw - 36px));max-height:calc(100vh - 110px);overflow:auto;
+  background:#FFFDF8;border:1px solid var(--line);border-radius:18px;box-shadow:0 24px 60px rgba(0,0,0,.3);padding:20px;font-family:Inter,sans-serif;display:none}
+#panel.open{display:block}
+#panel h2{margin:0 0 4px;font-size:17px;font-weight:800;font-family:Fraunces,serif}
+#panel p.sub{margin:0 0 6px;font-size:12.5px;color:#666;line-height:1.55}
+#panel label{display:block;font-size:10.5px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase;color:var(--brand);margin:11px 0 4px}
+#panel input{width:100%;box-sizing:border-box;border:1.5px solid #E3D8C2;border-radius:9px;padding:9px 11px;font:400 13px Inter,sans-serif;color:#191512;background:#fff}
+#panel input:focus{outline:2px solid var(--brand);border-color:var(--brand)}
+.swatches{display:flex;gap:8px;margin-top:6px}
+.sw{width:34px;height:34px;border-radius:50%;border:2px solid transparent;cursor:pointer;padding:0}
+.sw.on{border-color:#191512;transform:scale(1.08)}
+#panel .row{display:flex;gap:8px;margin-top:14px}
+#btnSave{flex:1;border:0;border-radius:10px;background:var(--brand);color:#fff;font:700 13px Inter,sans-serif;padding:11px;cursor:pointer}
+#btnDl{flex:1;border:0;border-radius:10px;background:#191512;color:#F7F1E3;font:700 13px Inter,sans-serif;padding:11px;cursor:pointer}
+#btnReset{width:100%;margin-top:8px;background:none;border:0;color:var(--brand);font:600 12px Inter,sans-serif;cursor:pointer;text-decoration:underline}
+#btnClose{position:absolute;top:10px;right:12px;background:none;border:0;font-size:20px;cursor:pointer;color:#999}
+#toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(20px);z-index:60;background:#191512;color:#F7F1E3;
+  font:600 13px Inter,sans-serif;padding:12px 20px;border-radius:12px;opacity:0;transition:.3s;pointer-events:none;max-width:calc(100vw - 40px);text-align:center}
+#toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+/* ---------- back-cover interactive block ---------- */
+.back .bd{gap:8px;padding:12px 20px 0}
+.bc-ask{font:700 10px Inter,sans-serif;letter-spacing:1.1px;text-transform:uppercase;color:#EFD9A7;text-align:center;margin:2px 0 0;line-height:1.5}
+.bc-vote{display:flex;gap:7px}
+.bc-vote button{flex:1;background:rgba(255,248,232,.07);border:1px solid rgba(239,217,167,.3);color:#F3E6C6;border-radius:11px;
+  font:700 12px Inter,sans-serif;padding:9px 6px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px}
+.bc-vote button:hover{background:rgba(239,217,167,.18);color:#fff}
+.bc-vote button.on{background:var(--gold);border-color:var(--gold);color:#241505}
+.bc-vote button b{font-weight:800}
+.bc-share{display:flex;gap:6px}
+.bc-share button{flex:1;background:transparent;border:1px solid rgba(239,217,167,.26);color:#D9CBAE;border-radius:9px;
+  font:700 10px Inter,sans-serif;letter-spacing:.6px;padding:7px 4px;cursor:pointer}
+.bc-share button:hover{background:rgba(239,217,167,.16);color:#fff}
+.bc-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;background:rgba(0,0,0,.26);border:1px solid rgba(239,217,167,.22);border-radius:12px;padding:8px 6px}
+.bc-stats div{text-align:center}
+.bc-stats b{display:block;font-family:Fraunces,serif;font-size:17px;font-weight:700;color:#FFF6E4;line-height:1.1}
+.bc-stats span{display:block;font:700 7.8px Inter,sans-serif;letter-spacing:1px;text-transform:uppercase;color:#B7A98C;margin-top:2px}
+.bc-live{display:flex;align-items:center;justify-content:center;gap:6px;font:700 8.5px Inter,sans-serif;letter-spacing:1.4px;text-transform:uppercase;color:#8FD9A8}
+.bc-live i{width:6px;height:6px;border-radius:50%;background:#7EE2A8;display:inline-block}
+.back .contact{padding:11px 12px;font-size:13px;line-height:1.6;text-align:center;background:rgba(255,248,232,.1);border:1.5px solid rgba(239,217,167,.45);border-radius:13px}
+.back .contact b{font-size:10px;letter-spacing:2.4px;margin-bottom:5px;color:#F3C969}
+.back .contact [data-biz]{color:#FFFFFF;font-weight:600}
+.back .contact [data-biz="address"]{display:block;margin-top:5px;padding-top:6px;border-top:1px solid rgba(239,217,167,.25);color:#EFE3C6;font-weight:500;font-size:12px;line-height:1.45}
+.bc-stats b{color:#FFFFFF;font-size:16px}
+.bc-vote button{font-size:12px;padding:8px 6px}
+.back .bd{gap:7px;padding:14px 18px 14px;overflow:hidden}
+.back h3.serif{font-size:19px!important;margin:0}
+.bc-share button{padding:6px 3px}
+.bc-stats{padding:7px 5px}
+.bc-live{font-size:8px}
+.bc-admin{display:block;width:100%;margin-top:2px;background:rgba(255,255,255,.07);border:1px solid rgba(239,217,167,.22);border-radius:9px;
+  color:#CFC6B4;font:700 9px Inter,sans-serif;letter-spacing:1.6px;text-transform:uppercase;cursor:pointer;padding:7px 0;flex:none}
+.bc-admin:hover{background:rgba(239,217,167,.18);color:#fff}
+/* final back-cover fit: everything inside 500px, nothing cut */
+.back .bd{flex:1 1 auto;height:auto;min-height:0;box-sizing:border-box;display:flex;flex-direction:column;
+  justify-content:center;gap:6px;padding:14px 18px;overflow:hidden}
+.back h3.serif{font-size:18px!important;line-height:1.15;margin:0}
+.back .contact{padding:10px 11px;font-size:12.5px;line-height:1.55}
+.back .contact b{font-size:9.5px;letter-spacing:2.2px;margin-bottom:4px}
+.back .contact [data-biz="address"]{font-size:11.5px;margin-top:4px;padding-top:5px}
+.bc-ask{font-size:9px!important;letter-spacing:.9px;margin:0}
+.bc-vote button{font-size:11.5px;padding:7px 5px}
+.bc-share button{font-size:9px;padding:6px 2px}
+.bc-stats{padding:6px 4px}
+.bc-stats b{font-size:15px}
+.bc-stats span{font-size:7.2px}
+.bc-live{font-size:7.6px}
+.bc-admin{padding:6px 0;font-size:8.5px;margin-top:3px}
+/* ---------- engagement bar ---------- */
+.engage{width:min(900px,100%);position:relative;z-index:2;margin-top:14px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;
+  background:rgba(253,251,246,.8);border:1px solid var(--line);border-radius:16px;padding:12px 14px;box-shadow:var(--shadow);backdrop-filter:blur(6px)}
+.eb-btn{border:1px solid var(--line);background:#fff;border-radius:999px;padding:9px 15px;font:700 12.5px Inter,sans-serif;color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;gap:7px}
+.eb-btn:hover{background:var(--brand);color:#fff;border-color:var(--brand)}
+.eb-btn.on{background:var(--brand);color:#fff;border-color:var(--brand)}
+.eb-btn.wa{background:#25D366;border-color:#1EB556;color:#07331A}
+.eb-btn.wa:hover{background:#1EB556;color:#fff}
+.eb-btn small{font-weight:800;opacity:.75}
+.eb-sep{flex:1}
+.eb-stat{font:600 11.5px Inter,sans-serif;color:var(--muted);display:inline-flex;align-items:center;gap:6px}
+.eb-stat b{color:var(--ink);font-weight:800}
+.wa-float{position:fixed;left:18px;bottom:18px;z-index:49;background:#25D366;color:#07331A;border:0;border-radius:999px;
+  font:800 13px Inter,sans-serif;padding:13px 18px;cursor:pointer;display:flex;align-items:center;gap:8px;box-shadow:0 10px 28px rgba(0,0,0,.3)}
+.wa-float:hover{background:#1EB556;color:#fff}
+/* ---------- admin dashboard ---------- */
+.adm-fab{position:fixed;right:18px;top:18px;z-index:49;background:rgba(25,21,18,.9);color:#F7F1E3;border:0;border-radius:999px;
+  font:700 12px Inter,sans-serif;padding:10px 16px;cursor:pointer;display:flex;align-items:center;gap:7px;box-shadow:0 8px 22px rgba(0,0,0,.3)}
+.adm-fab:hover{background:var(--brand)}
+.ov{position:fixed;inset:0;z-index:80;background:rgba(12,9,7,.82);backdrop-filter:blur(7px);display:none;align-items:flex-start;justify-content:center;padding:22px 14px;overflow:auto}
+.ov.open{display:flex}
+.login-card{background:#FFFDF8;border-radius:20px;max-width:380px;width:100%;padding:26px;box-shadow:0 30px 70px rgba(0,0,0,.4);margin:auto;font-family:Inter,sans-serif}
+.login-card h3{font-family:Fraunces,serif;margin:0 0 4px;font-size:21px}
+.login-card p{margin:0 0 16px;font-size:12.5px;color:#6F6659;line-height:1.55}
+.login-card input{width:100%;box-sizing:border-box;border:1.5px solid #E3D8C2;border-radius:10px;padding:11px 13px;font:400 14px Inter,sans-serif}
+.login-card input:focus{outline:2px solid var(--brand);border-color:var(--brand)}
+.login-card .err{color:#B31226;font-size:12px;font-weight:600;margin-top:8px;display:none}
+.btn-pri{width:100%;margin-top:12px;border:0;border-radius:10px;background:var(--brand);color:#fff;font:700 13.5px Inter,sans-serif;padding:12px;cursor:pointer}
+.btn-pri:hover{background:var(--brand-d)}
+.btn-gho{width:100%;margin-top:8px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);font:600 12.5px Inter,sans-serif;padding:10px;cursor:pointer}
+.dash{background:#FBF8F1;border-radius:20px;max-width:1080px;width:100%;margin:auto;box-shadow:0 30px 70px rgba(0,0,0,.45);font-family:Inter,sans-serif;overflow:hidden}
+.dash-top{background:#191512;color:#F7F1E3;padding:16px 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.dash-top h3{font-family:Fraunces,serif;font-size:19px;margin:0;font-weight:600}
+.dash-top .live{font:700 10px Inter,sans-serif;letter-spacing:1.4px;text-transform:uppercase;background:rgba(126,226,168,.16);color:#7EE2A8;border:1px solid rgba(126,226,168,.4);padding:4px 10px;border-radius:999px}
+.dash-top .live.demo{background:rgba(233,185,62,.16);color:#E9B93E;border-color:rgba(233,185,62,.4)}
+.dash-top button{margin-left:auto;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#F7F1E3;border-radius:9px;font:600 12px Inter,sans-serif;padding:8px 13px;cursor:pointer}
+.dash-top button:hover{background:var(--brand);border-color:var(--brand)}
+.dash-body{padding:18px 20px 24px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(132px,1fr));gap:10px}
+.kpi{background:#fff;border:1px solid var(--line);border-radius:14px;padding:13px 14px;box-shadow:var(--shadow)}
+.kpi span{display:block;font:700 9.5px Inter,sans-serif;letter-spacing:1.6px;text-transform:uppercase;color:#9A9084}
+.kpi b{display:block;font-family:Fraunces,serif;font-size:27px;font-weight:700;line-height:1.1;margin-top:3px}
+.kpi.up b{color:#1E7A4C}.kpi.dn b{color:#B31226}.kpi.br b{color:var(--brand)}
+.dash-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:12px;margin-top:12px}
+@media(max-width:820px){.dash-grid{grid-template-columns:1fr}}
+.card2{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;box-shadow:var(--shadow)}
+.card2 h4{margin:0 0 10px;font:800 11px Inter,sans-serif;letter-spacing:1.6px;text-transform:uppercase;color:var(--brand);display:flex;align-items:center;gap:8px}
+.card2 h4 em{font-style:normal;margin-left:auto;font-size:10px;color:#9A9084;letter-spacing:.6px;text-transform:none;font-weight:600}
+.bars{display:flex;align-items:flex-end;gap:5px;height:118px}
+.bars div{flex:1;background:linear-gradient(to top,var(--brand),#E0636F);border-radius:5px 5px 0 0;min-height:3px;position:relative}
+.bars div span{position:absolute;bottom:-17px;left:50%;transform:translateX(-50%);font:600 8.5px Inter,sans-serif;color:#9A9084;white-space:nowrap}
+.bars div i{position:absolute;top:-15px;left:50%;transform:translateX(-50%);font-style:normal;font:800 9.5px Inter,sans-serif;color:var(--ink)}
+.bars-wrap{padding-bottom:20px}
+.tbl{width:100%;border-collapse:collapse;font-size:12px}
+.tbl th{text-align:left;font:800 9.5px Inter,sans-serif;letter-spacing:1.3px;text-transform:uppercase;color:#9A9084;padding:7px 8px;border-bottom:1px solid var(--line)}
+.tbl td{padding:8px;border-bottom:1px solid #F0E9DC;color:#4A443A}
+.tbl tr:last-child td{border-bottom:0}
+.tbl .ok{color:#1E7A4C;font-weight:700}.tbl .no{color:#9A9084}
+.tbl .src{font-weight:700;color:var(--ink)}
+.scroll{max-height:250px;overflow:auto}
+.setup{background:#FFFDF7;border:1px dashed var(--line);border-radius:12px;padding:12px 14px;margin-top:12px;font-size:12px;color:#6F6659;line-height:1.6}
+.setup b{color:var(--ink)}
+.setup code{background:#191512;color:#F3E9CF;font-size:11px;padding:2px 7px;border-radius:5px;word-break:break-all}
+.setup input{width:100%;box-sizing:border-box;margin-top:8px;border:1.5px solid #E3D8C2;border-radius:9px;padding:9px 11px;font:400 12px Inter,sans-serif}
+.pillrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.pillrow button{border:1px solid var(--line);background:#fff;border-radius:9px;font:600 11.5px Inter,sans-serif;padding:8px 13px;cursor:pointer;color:var(--ink)}
+.pillrow button:hover{background:var(--ink);color:#F7F1E3}
+@media (prefers-reduced-motion:reduce){.enter{animation:none}.leaf,.book{transition:none}}
+@media print{#editFab,#panel,#toast,.ar,.controls,.strip,.credits,.mast{display:none!important}body{display:block;padding:0;background:#fff}}
+</style>
+</head>
+<body>
+<h1 class="sr">ABC Screen Printing — interactive auto-flip business guide: screen printing, embroidery, flyers and uniforms</h1>
+
+
+
+<!-- TOP CONTROL BAR -->
+<div class="topbar">
+  <div class="dots" id="dots" role="tablist" aria-label="Book pages"></div>
+  <button class="pill" id="autoBtn" onclick="toggleAuto()"><span class="dotlive"></span><span id="autoLbl">Auto-flip on</span></button>
+  <div class="seg" role="group" aria-label="Flip speed">
+    <button data-speed="4000" onclick="setSpeed(4000,this)">4s</button>
+    <button data-speed="6000" class="on" onclick="setSpeed(6000,this)">6s</button>
+    <button data-speed="9000" onclick="setSpeed(9000,this)">9s</button>
+  </div>
+  <span class="sr" id="lbl" aria-live="polite">Cover</span>
+  <span class="sr" id="progFill"></span>
+</div>
+
+<div id="outer">
+  <div id="wrap">
+    <div class="stage">
+      <div class="deck"></div>
+
+      <div class="enter">
+        <div class="book closed" id="book" role="region" aria-label="Interactive auto-flipping business guide">
+
+          <!-- LEAF 5 : p9 + BACK -->
+          <div class="leaf l5" id="leaf5" role="button" aria-label="Flip page">
+            <div class="face front offer" onclick="go(1)">
+              <div class="offerbg"><img src="https://images.pexels.com/photos/8092418/pexels-photo-8092418.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Branded business stationery set — cards, letterheads, notebook, pens and mug" loading="lazy"></div>
+              <div class="bd tight">
+                <span class="ribbon">★ Bumper offer · limited time ★</span>
+                <h3 class="serif">Complete business package — <em>everything launch-ready.</em></h3>
+                <div class="price"><b>$1500</b><span>one package<br>all inclusive</span></div>
+                <p class="in small" style="color:#E8D9B8">Our special package: all your business stationery and promo printing <b style="color:#fff">plus website + automation</b> — designed, printed and set up by ABC.</p>
+                <div class="offer-grid">
+                  <div><i>✓</i>Visiting cards</div>
+                  <div><i>✓</i>Flyers</div>
+                  <div><i>✓</i>Brochures</div>
+                  <div><i>✓</i>Bill books</div>
+                  <div><i>✓</i>Printed pens</div>
+                  <div><i>✓</i>Stickers</div>
+                  <div><i>✓</i>T-shirt stickers</div>
+                  <div><i>✓</i>Posters</div>
+                  <div><i>✓</i>Panaflex</div>
+                  <div><i>✓</i>Website + automation</div>
+                </div>
+                <div class="offer-why"><b>Why it grows your business:</b> one matching design on print + online builds instant trust · one supplier, one bill, launch in days · costs far less than ordering everything separately.</div>
+              </div>
+            </div>
+            <div class="face rear" onclick="go(-1)" aria-hidden="true"></div>
+          </div>
+
+          <!-- LEAF 4 : p7 + p8 OFFER -->
+          <div class="leaf l4" id="leaf4" role="button" aria-label="Flip page">
+            <div class="face front" onclick="go(1)">
+              <figure class="ph xs" style="margin:0">
+                <img src="https://images.pexels.com/photos/31070325/pexels-photo-31070325.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Close-up of embroidery needle stitching thread into fabric" loading="lazy">
+                <figcaption class="tag"><i></i>Embroidery · 2 of 2</figcaption>
+              </figure>
+              <div class="bd tight">
+                <div class="eyebrow">Embroidery · full menu</div>
+                <h3 class="serif">Bring it to us — we <em>stitch it.</em></h3>
+                <p class="in small">Anything your team wears, we brand with thread that lasts wash after wash.</p>
+                <div class="cols2">
+                  <div class="mini"><b><span class="tk">✓</span>Polos</b><span>Hotels &amp; shops — pro look, more trust.</span></div>
+                  <div class="mini"><b><span class="tk">✓</span>Caps</b><span>Flat &amp; 3D — logo seen everywhere.</span></div>
+                  <div class="mini"><b><span class="tk">✓</span>Jackets</b><span>Work &amp; varsity — branded every day.</span></div>
+                  <div class="mini"><b><span class="tk">✓</span>Aprons</b><span>Pocket logo + name — seen at counter.</span></div>
+                  <div class="mini"><b><span class="tk">✓</span>Bags</b><span>Backpacks &amp; totes — brand travels city.</span></div>
+                  <div class="mini"><b><span class="tk">✓</span>Patches</b><span>Names &amp; emblems — finish that impresses.</span></div>
+                </div>
+              </div>
+              <div class="pn"><span data-biz="brand">ABC Screen Printing</span> · 7</div>
+            </div>
+            <div class="face rear" onclick="go(-1)">
+              <figure class="ph short" style="margin:0">
+                <img src="https://images.pexels.com/photos/5439466/pexels-photo-5439466.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Happy business owners shaking hands after ordering printing" loading="lazy">
+                <figcaption class="tag"><i></i>How to order</figcaption>
+              </figure>
+              <div class="bd">
+                <div class="eyebrow">Ordering</div>
+                <h3 class="serif">Four easy <em>steps.</em></h3>
+                <div class="step"><div class="num">01<small>STEP</small></div><div><div class="rh">Tell us your goal</div><div class="rt">Opening, uniforms, promotion or giveaways?</div></div></div>
+                <div class="step"><div class="num">02<small>STEP</small></div><div><div class="rh">Send your logo</div><div class="rt">Any quality is fine — email it as an attachment.</div></div></div>
+                <div class="step"><div class="num">03<small>STEP</small></div><div><div class="rh">Share the details</div><div class="rt">Item, quantity, colours and your deadline.</div></div></div>
+                <div class="step"><div class="num">04<small>STEP</small></div><div><div class="rh">Approve &amp; relax</div><div class="rt">Confirm pricing and delivery — then we print.</div></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- LEAF 3 : p5 + p6 -->
+          <div class="leaf l3" id="leaf3" role="button" aria-label="Flip page">
+            <div class="face front" onclick="go(1)">
+              <figure class="ph xs" style="margin:0">
+                <img src="https://images.pexels.com/photos/8346218/pexels-photo-8346218.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Neatly folded printed shirts ready for delivery" loading="lazy">
+                <figcaption class="tag"><i></i>Screen printing · 2 of 2</figcaption>
+              </figure>
+              <div class="bd tight">
+                <div class="eyebrow">Screen printing · more from us</div>
+                <h3 class="serif">We print what customers <em>carry.</em></h3>
+                <p class="in small">We print more than shirts — we put your logo on what goes home with customers.</p>
+                <div class="cols2">
+                  <div class="mini"><b><span class="tk">✓</span>Tote bags</b><span>Big prints — free ads on streets.</span></div>
+                  <div class="mini"><b><span class="tk">✓</span>Drawstring bags</b><span>Gym &amp; school kits — carried daily.</span></div>
+                  <div class="mini"><b><span class="tk">✓</span>Work jackets</b><span>Back logo — crew looks official.</span></div>
+                  <div class="mini"><b><span class="tk">✓</span>Kids &amp; baby</b><span>Small tees — families remember you.</span></div>
+                  <div class="mini"><b><span class="tk">✓</span>Bandanas</b><span>Towels &amp; scarves — cheap, big recall.</span></div>
+                  <div class="mini"><b><span class="tk">✓</span>Combo kits</b><span>Shirt + cap + bag — save more.</span></div>
+                </div>
+              </div>
+              <div class="pn"><span data-biz="brand">ABC Screen Printing</span> · 5</div>
+            </div>
+            <div class="face rear" onclick="go(-1)">
+              <figure class="ph xs" style="margin:0">
+                <img src="https://images.pexels.com/photos/32641546/pexels-photo-32641546.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Industrial embroidery machines stitching in a textile workshop" loading="lazy">
+                <figcaption class="tag"><i></i>Embroidery · 1 of 2</figcaption>
+              </figure>
+              <div class="bd tight">
+                <div class="eyebrow">Embroidery · by ABC</div>
+                <h3 class="serif">We stitch uniforms that <em>win trust.</em></h3>
+                <p class="in small">We digitise your logo once, then stitch it premium — neat, durable, never fades in wash.</p>
+                <div class="row"><div class="bullet brand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l2-5h14l2 5M4 9v11h16V9M9 20v-6h6v6"/></svg></div><div><div class="rh">Left-chest logos</div><div class="rt">We stitch polos &amp; shirts — neat look that earns trust.</div></div></div>
+                <div class="row"><div class="bullet brand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 16c0-5 4-9 9-9s9 4 9 9M3 16h18M2 19h20"/></svg></div><div><div class="rh">Caps &amp; beanies</div><div class="rt">Our 3D-puff stitch pops — seen from far away.</div></div></div>
+                <div class="row"><div class="bullet brand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5z"/></svg></div><div><div class="rh">Back &amp; sleeve branding</div><div class="rt">Big logos, names &amp; titles — staff looks official.</div></div></div>
+              </div>
+              <div class="pn"><span data-biz="brand">ABC Screen Printing</span> · 6</div>
+            </div>
+          </div>
+
+          <!-- LEAF 2 : p3 + p4 -->
+          <div class="leaf l2" id="leaf2" role="button" aria-label="Flip page">
+            <div class="face front" onclick="go(1)">
+              <figure class="ph" style="margin:0">
+                <img src="https://images.pexels.com/photos/35757290/pexels-photo-35757290.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Crowd proudly wearing matching branded shirts at an outdoor event" loading="lazy">
+                <figcaption class="tag"><i></i>Why it matters</figcaption>
+              </figure>
+              <div class="bd">
+                <div class="eyebrow">Why it matters</div>
+                <h3 class="serif">Quiet marketing, <em>worn daily.</em></h3>
+                <div class="row"><div class="bullet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12V3h9l9 9-9 9zM8 8h.01"/></svg></div><div><div class="rh">People recognise you</div><div class="rt">Shirts, caps and bags keep your name in front.</div></div></div>
+                <div class="row"><div class="bullet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 11a3 3 0 100-6 3 3 0 000 6zM8 12a3 3 0 100-6 3 3 0 000 6zM2 20c0-3 3-5 6-5s6 2 6 5M14 15c3 0 8 1 8 5"/></svg></div><div><div class="rh">Your team looks professional</div><div class="rt">Matching uniforms build instant trust.</div></div></div>
+                <div class="row"><div class="bullet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l1 13H4zM9 8a3 3 0 016 0"/></svg></div><div><div class="rh">Customers carry your brand</div><div class="rt">Totes and giveaways become walking ads.</div></div></div>
+              </div>
+              <div class="pn"><span data-biz="brand">ABC Screen Printing</span> · 3</div>
+            </div>
+            <div class="face rear" onclick="go(-1)">
+              <div class="duo">
+                <figure><img src="https://images.pexels.com/photos/27893067/pexels-photo-27893067.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Printer pulling a screen print by hand in the workshop" loading="lazy"><figcaption>Printing in action</figcaption></figure>
+                <figure><img src="https://images.pexels.com/photos/34906872/pexels-photo-34906872.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Printed promotional t-shirts on display" loading="lazy"><figcaption>Promo items</figcaption></figure>
+              </div>
+              <div class="bd tight">
+                <div class="eyebrow">Screen printing · from ABC</div>
+                <h3 class="serif">We print all that your shop <em>wears.</em></h3>
+                <p class="in small">We are ABC — send us your logo, we print it bold and lasting, so every shirt earns you customers.</p>
+                <div class="cols2">
+                  <div class="mini"><b><span class="tk">✓</span>T-Shirts</b><span>Staff &amp; event tees — walking ads for you.</span></div>
+                  <div class="mini"><b><span class="tk">✓</span>Hoodies</b><span>Gym &amp; crew hoodies — worn daily, seen daily.</span></div>
+                  <div class="mini"><b><span class="tk">✓</span>Polo shirts</b><span>Chest logo — instant trusted look.</span></div>
+                  <div class="mini"><b><span class="tk">✓</span>Caps</b><span>Printed caps — logo seen from far.</span></div>
+                  <div class="mini"><b><span class="tk">✓</span>Aprons</b><span>Cafe &amp; salon aprons — name on every order.</span></div>
+                  <div class="mini"><b><span class="tk">✓</span>Team kits</b><span>Matching kits — one pro team image.</span></div>
+                </div>
+              </div>
+              <div class="pn"><span data-biz="brand">ABC Screen Printing</span> · 4</div>
+            </div>
+          </div>
+
+          <!-- LEAF 1 : COVER + p2 -->
+          <div class="leaf l1" id="leaf1" role="button" aria-label="Flip page">
+            <div class="face front cov" onclick="go(1)">
+              <div class="bg"><img src="https://images.pexels.com/photos/8475169/pexels-photo-8475169.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Small business owner opening his shop door on launch day" fetchpriority="high"></div>
+              <div class="inner">
+                <div class="brandbig"><span data-biz="brand">ABC Screen Printing</span></div>
+                <h2 class="bighead">Grow your Business with <em>Custom Printing.</em></h2>
+                <p class="coverspeech"><b class="hellolead">Hello, neighbour.</b> We are <span data-biz="brand">ABC Screen Printing</span>. Your local screen printer and embroiderer. Whether you are opening a new place or growing an existing one, this guide shows what to print and why it helps your business.</p>
+                <p class="guideline">A guide for local businesses and startups, from your neighborhood printer.</p>
+                <div class="turn">Turn the page for ideas, benefits and how to order &nbsp;&#10142;</div>
+              </div>
+            </div>
+            <div class="face rear" onclick="go(-1)">
+              <figure class="ph short" style="margin:0">
+                <img src="https://images.pexels.com/photos/31501100/pexels-photo-31501100.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Matching branded gifts and promo items carrying one logo" loading="lazy">
+                <figcaption class="tag"><i></i>Where to start</figcaption>
+              </figure>
+              <div class="bd">
+                <div class="eyebrow">Where to start</div>
+                <h3 class="serif">Begin with <em>one goal.</em></h3>
+                <div class="row"><div class="bullet brand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l2-5h14l2 5M4 9v11h16V9M9 20v-6h6v6"/></svg></div><div><div class="rh">Opening a new place</div><div class="rt">Staff shirts, flyers and a ready logo.</div></div></div>
+                <div class="row"><div class="bullet brand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 11a3 3 0 100-6 3 3 0 000 6zM8 12a3 3 0 100-6 3 3 0 000 6zM2 20c0-3 3-5 6-5s6 2 6 5M14 15c3 0 8 1 8 5"/></svg></div><div><div class="rh">Outfitting your staff</div><div class="rt">Polos, tees, aprons and caps.</div></div></div>
+                <div class="row"><div class="bullet brand"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12V3h9l9 9-9 9zM8 8h.01"/></svg></div><div><div class="rh">Promoting your brand</div><div class="rt">Flyers, giveaways and event shirts.</div></div></div>
+                <div class="note"><b>Need a logo first?</b> We prepare it so it prints and stitches clearly.</div>
+              </div>
+              <div class="pn"><span data-biz="brand">ABC Screen Printing</span> · 2</div>
+            </div>
+          </div>
+
+                  </div>
+      </div>
+
+      <button class="ar" style="left:40px" aria-label="Previous page" onclick="go(-1)">&#8249;</button>
+      <button class="ar" style="left:814px" aria-label="Next page" onclick="go(1)">&#8250;</button>
+
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT + ENGAGEMENT (below the flyer) -->
+<div class="engage" style="flex-direction:column;align-items:stretch;gap:12px">
+  <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:center;text-align:center">
+    <span style="font:800 11px Inter,sans-serif;letter-spacing:2.4px;text-transform:uppercase;color:var(--brand)">Visit us</span>
+    <span style="font:600 14px Inter,sans-serif" data-biz="website">www.abc.com</span>
+    <span style="font:600 14px Inter,sans-serif" data-biz="phone">+1 12345678</span>
+    <span style="font:600 14px Inter,sans-serif" data-biz="email">info@abc.com</span>
+    <span style="font:500 13px Inter,sans-serif;color:var(--muted)" data-biz="address">[Street address, City, State ZIP]</span>
+  </div>
+  <div style="text-align:center;font:700 10.5px Inter,sans-serif;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted)">
+    Please like &amp; share our page in your community, friends and family
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center">
+    <button class="eb-btn" id="btnLike" onclick="react('like')">👍 Like <small id="cLike">0</small></button>
+    <button class="eb-btn" id="btnDislike" onclick="react('dislike')">👎 Dislike <small id="cDislike">0</small></button>
+    <button class="eb-btn" onclick="shareTo('whatsapp')">WhatsApp</button>
+    <button class="eb-btn" onclick="shareTo('facebook')">Facebook</button>
+    <button class="eb-btn" onclick="shareTo('linkedin')">LinkedIn</button>
+    <button class="eb-btn" onclick="shareTo('copy')">Copy link</button>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center">
+    <span class="eb-stat">👁 Visitors <b id="cViews">0</b></span>
+    <span class="eb-stat">👍 Likes <b id="sLikes">0</b></span>
+    <span class="eb-stat">↗ Shares <b id="cShare">0</b></span>
+    <span class="eb-stat">📅 Today <b id="sToday">0</b></span>
+    <span class="eb-stat" style="color:#1E7A4C">● Live counter</span>
+    <button class="eb-btn" style="font-size:11px" onclick="openAdmin()">🔒 Owner login</button>
+  </div>
+</div>
+
+
+<p class="credits">Photography: <a href="https://www.pexels.com" target="_blank" rel="noopener">Pexels</a> artists (Kampus Production, Ventara Films, HONG SON, Rodolfo Gaion, Jacob Moseholt, Ron Lach, MART Production, Barbara Olsen, kaboompics, Tima Miroshnichenko, Cristian Camilo Estrada, Jopwell, alleksana, Gustavo Fring) · Single-file site, no tracking.</p>
+
+<!-- LOGIN OVERLAY -->
+<div class="ov" id="loginOv" onclick="if(event.target===this)closeOv('loginOv')">
+  <div class="login-card">
+    <h3>Owner login</h3>
+    <p>Sirf business owner ke liye. Password daal kar marketing dashboard kholen — views, likes, shares aur email campaign reports.</p>
+    <input type="password" id="admPass" placeholder="Enter password" onkeydown="if(event.key==='Enter')doLogin()">
+    <div class="err" id="admErr">Ghalat password. Dobara koshish karein.</div>
+    <button class="btn-pri" onclick="doLogin()">Login to dashboard</button>
+    <button class="btn-gho" onclick="closeOv('loginOv')">Cancel</button>
+  </div>
+</div>
+
+<!-- DASHBOARD OVERLAY -->
+<div class="ov" id="dashOv" onclick="if(event.target===this)closeOv('dashOv')">
+  <div class="dash">
+    <div class="dash-top">
+      <h3>📊 Marketing Dashboard</h3>
+      <span class="live demo" id="modeTag">DEMO DATA</span>
+      <button onclick="loadStats(true)">↻ Refresh</button>
+      <button onclick="exportCSV()">⬇ CSV</button>
+      <button onclick="closeOv('dashOv')">✕ Close</button>
+    </div>
+    <div class="dash-body">
+      <div class="kpis">
+        <div class="kpi"><span>Total views</span><b id="kViews">0</b></div>
+        <div class="kpi up"><span>Likes</span><b id="kLikes">0</b></div>
+        <div class="kpi dn"><span>Dislikes</span><b id="kDis">0</b></div>
+        <div class="kpi br"><span>Shares</span><b id="kShare">0</b></div>
+        <div class="kpi"><span>Emails sent</span><b id="kSent">0</b></div>
+        <div class="kpi up"><span>Opened today</span><b id="kOpen">0</b></div>
+        <div class="kpi br"><span>Share clicks</span><b id="kWa">0</b></div>
+        <div class="kpi"><span>Open rate</span><b id="kRate">0%</b></div>
+      </div>
+
+      <div class="dash-grid">
+        <div class="card2 bars-wrap">
+          <h4>Daily views — last 14 days <em id="trendNote"></em></h4>
+          <div class="bars" id="barChart"></div>
+        </div>
+        <div class="card2">
+          <h4>Traffic sources</h4>
+          <div class="scroll"><table class="tbl"><thead><tr><th>Source</th><th>Visits</th><th>Share</th></tr></thead><tbody id="srcBody"></tbody></table></div>
+        </div>
+      </div>
+
+      <div class="dash-grid">
+        <div class="card2">
+          <h4>Email campaign log <em>date · time · recipient · status</em></h4>
+          <div class="scroll"><table class="tbl"><thead><tr><th>Date / time</th><th>Recipient</th><th>Campaign</th><th>Status</th></tr></thead><tbody id="mailBody"></tbody></table></div>
+        </div>
+        <div class="card2">
+          <h4>Today&rsquo;s summary</h4>
+          <div class="scroll"><table class="tbl"><tbody id="sumBody"></tbody></table></div>
+        </div>
+      </div>
+
+      <div class="setup">
+        <b>Live data kaise on karein (free, 5 min):</b> Google Sheet → Extensions → Apps Script → web app deploy karein (Anyone access) → us ka URL neeche paste karein. Phir har view, like, share aur email open seedha aapki Sheet me record hoga — ye brochure GitHub Pages par hi chalta rahega.<br>
+        Email open track karne ke liye apni marketing email me ye pixel lagayein: <code>&lt;img src="ENDPOINT?a=open&amp;cid=CAMPAIGN&amp;e=EMAIL" width="1" height="1"&gt;</code><br>
+        Flyer link me source bhi add karein: <code>?utm_source=email&amp;cid=jan-promo</code>
+        <input id="apiUrl" placeholder="https://script.google.com/macros/s/..../exec">
+        <div class="pillrow">
+          <button onclick="saveApi()">Save endpoint</button>
+          <button onclick="changePass()">Change password</button>
+          
+          <button onclick="clearLocal()">Reset local data</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script>
+var f=0,auto=true,timer=null,book=document.getElementById('book');
+var DOT_LABELS=['Cover','Pages 2-3','Pages 4-5','Pages 6-7','Pages 8-9'];
+var LAST=4;
+var SPEED=6000,elapsed=0,hovering=false;
+function render(){
+  for(var i=1;i<=5;i++)document.getElementById('leaf'+i).classList.toggle('f',f>=i);
+  book.className='book '+(f===0?'closed':'open');
+  document.getElementById('lbl').textContent=f===0?'Cover':'Pages '+(2*f)+'-'+(2*f+1)+' of 9';
+  var ab=document.getElementById('autoBtn');
+  document.getElementById('autoLbl').textContent=auto?'Auto-flip on':'Auto-flip off';
+  if(ab)ab.classList.toggle('paused',!auto);
+  var d=document.getElementById('dots').children;
+  for(var k=0;k<d.length;k++){d[k].classList.toggle('on',k===f);d[k].setAttribute('aria-selected',k===f?'true':'false');}
+}
+function tick(){
+  if(!auto||hovering||document.hidden)return;
+  elapsed+=100;
+  if(elapsed>=SPEED){elapsed=0;f=f>=LAST?0:f+1;render();}
+  var bar=document.getElementById('progFill');
+  if(bar)bar.style.width=Math.min(100,(elapsed/SPEED)*100)+'%';
+}
+function stopTick(){if(timer){clearInterval(timer);timer=null;}}
+function startTick(){stopTick();timer=setInterval(tick,100);}
+/* keep viewport perfectly still while flipping (no jump / no cut-off) */
+function holdScroll(){
+  var y=window.pageYOffset||document.documentElement.scrollTop||0;
+  var lock=function(){window.scrollTo(0,y);};
+  lock();requestAnimationFrame(lock);
+  setTimeout(lock,60);setTimeout(lock,320);setTimeout(lock,1020);
+}
+function go(d){elapsed=0;auto=false;f=d>0?(f>=LAST?0:f+1):Math.max(f-1,0);render();holdScroll();}
+function jump(n){elapsed=0;auto=false;f=Math.max(0,Math.min(LAST,n));render();holdScroll();}
+function toggleAuto(){auto=!auto;elapsed=0;render();}
+function setSpeed(ms,btn){SPEED=ms;elapsed=0;var b=btn.parentElement.children;for(var i=0;i<b.length;i++)b[i].classList.toggle('on',b[i]===btn);if(!auto){auto=true;}render();}
+function buildDots(){var w=document.getElementById('dots');for(var k=0;k<=LAST;k++){var b=document.createElement('button');b.className='dot'+(k===0?' on':'');b.setAttribute('role','tab');b.setAttribute('aria-label',DOT_LABELS[k]);b.setAttribute('aria-selected',k===0?'true':'false');b.dataset.n=k;b.onclick=function(){jump(parseInt(this.dataset.n,10));};w.appendChild(b);}}
+var USE_ZOOM=(function(){try{return 'zoom' in document.documentElement.style;}catch(e){return false;}})();
+function fit(){
+  var tb=document.querySelector('.topbar');
+  var tbh=tb?tb.offsetHeight+6:40;
+  var sw=(window.innerWidth-16)/900, sh=(window.innerHeight-tbh-8)/600;
+  var s=Math.min(sw,sh);              // stage always fits viewport -> no page jump
+  if(s<0.42)s=0.42;
+  s=Math.min(s,1.25);
+  s=Math.round(s*1000)/1000;
+  var w=document.getElementById('wrap'),o=document.getElementById('outer');
+  if(USE_ZOOM){
+    /* zoom re-lays out at native resolution -> 3D pages stay perfectly sharp */
+    w.style.zoom=s; w.style.transform='none';
+    o.style.width=''; o.style.height='';
+  }else{
+    w.style.transform='scale('+s+')';
+    o.style.width=Math.round(900*s)+'px';o.style.height=Math.round(600*s)+'px';
+  }
+}
+window.addEventListener('resize',fit);
+window.addEventListener('keydown',function(e){
+  var t=(e.target&&e.target.tagName)||'';
+  if(t==='INPUT'||t==='TEXTAREA')return;
+  if(e.key==='ArrowRight'){go(1);}
+  else if(e.key==='ArrowLeft'){go(-1);}
+  else if(e.key===' '&&e.target===document.body){e.preventDefault();toggleAuto();}
+  else if(e.key==='Enter'&&e.target.classList&&e.target.classList.contains('leaf')){go(e.target.classList.contains('f')?-1:1);}
+});
+(function(){var x0=null;var st=document.getElementById('wrap');
+st.addEventListener('touchstart',function(e){x0=e.touches[0].clientX;},{passive:true});
+st.addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;x0=null;if(Math.abs(dx)>40)go(dx<0?1:-1);},{passive:true});})();
+document.getElementById('outer').addEventListener('mouseenter',function(){hovering=true;});
+document.getElementById('outer').addEventListener('mouseleave',function(){hovering=false;});
+buildDots();fit();render();
+if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){auto=false;render();}else{startTick();}
+</script>
+
+
+<script>
+/* ============================================================
+   ABC FLYER — ANALYTICS + WHATSAPP + ADMIN DASHBOARD
+   Works on GitHub Pages (static). Optional Google Apps Script
+   endpoint turns on real live data shared across all visitors.
+   ============================================================ */
+var CFG={
+  api:   localStorage.getItem('abc_api')   || '',            // Apps Script web-app URL
+  pass:  localStorage.getItem('abc_pass')  || 'abc2026',     // owner password
+  wa:    localStorage.getItem('abc_wa')    || '923001234567',// WhatsApp number (country code, no +)
+  waMsg: 'Hello! I saw your printing brochure and I want a quote.'
+};
+var LS='abc_flyer_stats_v1', S=null, VISIT_KEY='abc_visited_v1';
+
+/* ---------- local store ---------- */
+function blank(){return{views:0,likes:0,dislikes:0,shares:0,wa:0,days:{},sources:{},mails:[],opens:{}};}
+function load(){try{S=Object.assign(blank(),JSON.parse(localStorage.getItem(LS)||'{}'));}catch(e){S=blank();}}
+function save(){try{localStorage.setItem(LS,JSON.stringify(S));}catch(e){}}
+function today(){return new Date().toISOString().slice(0,10);}
+function bump(k,n){S[k]=(S[k]||0)+(n||1);}
+
+/* ---------- remote (optional) ---------- */
+function api(action,extra){
+  if(!CFG.api)return Promise.resolve(null);
+  var q=new URLSearchParams(Object.assign({a:action},extra||{})).toString();
+  return fetch(CFG.api+(CFG.api.indexOf('?')>-1?'&':'?')+q,{method:'GET'})
+    .then(function(r){return r.json();}).catch(function(){return null;});
+}
+
+/* ---------- source detection ---------- */
+function getSource(){
+  var p=new URLSearchParams(location.search);
+  var s=p.get('utm_source')||p.get('src');
+  if(s)return s.toLowerCase();
+  if(document.referrer){
+    try{var h=new URL(document.referrer).hostname.replace('www.','');
+      if(h&&h!==location.hostname)return h;}catch(e){}
+  }
+  return 'direct';
+}
+function getCampaign(){var p=new URLSearchParams(location.search);return p.get('cid')||p.get('utm_campaign')||'';}
+
+/* ---------- track page view ---------- */
+function trackView(){
+  var d=today(),src=getSource();
+  bump('views');
+  S.days[d]=(S.days[d]||0)+1;
+  S.sources[src]=(S.sources[src]||0)+1;
+  var cid=getCampaign();
+  if(cid&&!sessionStorage.getItem('abc_cid_'+cid)){
+    sessionStorage.setItem('abc_cid_'+cid,'1');
+    S.opens[d]=(S.opens[d]||0)+1;
+  }
+  save();
+  api('view',{src:src,cid:cid,ref:document.referrer||'',d:d});
+  paintPublic();
+}
+
+/* ---------- reactions ---------- */
+function react(type){
+  var prev=localStorage.getItem('abc_react');
+  if(prev===type){toast2('Aap pehle hi '+type+' kar chuke hain.');return;}
+  if(prev){S[prev+'s']=Math.max(0,(S[prev+'s']||0)-1);}
+  S[type+'s']=(S[type+'s']||0)+1;
+  localStorage.setItem('abc_react',type);save();
+  api('react',{t:type,src:getSource()});
+  paintPublic();
+  toast2(type==='like'?'Shukriya! 👍':'Feedback mil gaya. 👎');
+}
+function shareTo(where){
+  var url=location.href.split('#')[0], txt='Check out this printing brochure from '+(document.querySelector('[data-biz="brand"]')||{}).textContent;
+  S.shares=(S.shares||0)+1;save();api('share',{p:where});paintPublic();
+  var u='';
+  if(where==='whatsapp')u='https://wa.me/?text='+encodeURIComponent(txt+' '+url);
+  else if(where==='facebook')u='https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(url);
+  else if(where==='linkedin')u='https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(url);
+  if(u){window.open(u,'_blank','noopener,width=620,height=560');return;}
+  if(navigator.share){navigator.share({title:document.title,text:txt,url:url}).catch(function(){});return;}
+  navigator.clipboard.writeText(url).then(function(){toast2('Link copy ho gaya 📋');});
+}
+function openWhatsApp(from){ /* retained for WhatsApp share only */
+  S.wa=(S.wa||0)+1;save();api('wa',{from:from||'btn',src:getSource()});paintPublic();
+  window.open('https://wa.me/'+CFG.wa+'?text='+encodeURIComponent(CFG.waMsg),'_blank','noopener');
+}
+
+/* ---------- public counters ---------- */
+function paintPublic(){
+  var set=function(id,v){var e=document.getElementById(id);if(e)e.textContent=v;};
+  set('cViews',S.views||0);set('cLike',S.likes||0);set('cDislike',S.dislikes||0);set('cShare',S.shares||0);
+  set('sLikes',S.likes||0);set('sToday',S.days[today()]||0);
+  var r=localStorage.getItem('abc_react');
+  var bl=document.getElementById('btnLike'),bd=document.getElementById('btnDislike');
+  if(bl)bl.classList.toggle('on',r==='like');
+  if(bd)bd.classList.toggle('on',r==='dislike');
+}
+function toast2(m){var t=document.getElementById('toast');if(!t){alert(m);return;}t.textContent=m;t.classList.add('show');clearTimeout(t._h2);t._h2=setTimeout(function(){t.classList.remove('show');},2600);}
+
+/* ---------- admin ---------- */
+function openAdmin(){
+  if(sessionStorage.getItem('abc_admin')==='1'){openDash();return;}
+  document.getElementById('loginOv').classList.add('open');
+  setTimeout(function(){document.getElementById('admPass').focus();},80);
+}
+function closeOv(id){document.getElementById(id).classList.remove('open');}
+function doLogin(){
+  var v=document.getElementById('admPass').value;
+  if(v===CFG.pass){sessionStorage.setItem('abc_admin','1');document.getElementById('admErr').style.display='none';
+    document.getElementById('admPass').value='';closeOv('loginOv');openDash();}
+  else{document.getElementById('admErr').style.display='block';}
+}
+function openDash(){document.getElementById('dashOv').classList.add('open');document.getElementById('apiUrl').value=CFG.api;loadStats();}
+
+function demoMails(){
+  if(S.mails&&S.mails.length)return S.mails;
+  var names=['ali.khan@gmail.com','sara.boutique@yahoo.com','info@citygym.com','hello@royalcafe.pk','contact@bluehotel.com','orders@fitclub.net','admin@shoehouse.co','mail@greenmart.pk'],
+      camp=['jan-promo','uniform-offer','package-1500','reorder-reminder'],out=[];
+  for(var i=0;i<14;i++){
+    var dt=new Date(Date.now()-i*3*3600*1000);
+    out.push({t:dt.toISOString(),to:names[i%names.length],c:camp[i%camp.length],o:(i%3!==0)});
+  }
+  return out;
+}
+function loadStats(force){
+  var tag=document.getElementById('modeTag');
+  if(CFG.api){
+    tag.textContent='LIVE DATA';tag.classList.remove('demo');
+    api('stats',{}).then(function(d){ if(d&&d.views!==undefined){S=Object.assign(blank(),d);save();} paintDash(); });
+  }else{ tag.textContent='LOCAL / DEMO DATA';tag.classList.add('demo');paintDash(); }
+}
+function paintDash(){
+  var set=function(id,v){var e=document.getElementById(id);if(e)e.textContent=v;};
+  var mails=(S.mails&&S.mails.length)?S.mails:demoMails();
+  var d=today(), openedToday=mails.filter(function(m){return m.o&&m.t.slice(0,10)===d;}).length||S.opens[d]||0;
+  set('kViews',S.views||0);set('kLikes',S.likes||0);set('kDis',S.dislikes||0);set('kShare',S.shares||0);
+  set('kSent',mails.length);set('kOpen',openedToday);set('kWa',S.wa||0);
+  var opened=mails.filter(function(m){return m.o;}).length;
+  set('kRate',mails.length?Math.round(opened/mails.length*100)+'%':'0%');
+
+  /* bar chart */
+  var bars=document.getElementById('barChart'),html='',max=1,vals=[];
+  for(var i=13;i>=0;i--){
+    var dd=new Date();dd.setDate(dd.getDate()-i);var key=dd.toISOString().slice(0,10);
+    var v=S.days[key]||0;vals.push({k:key,v:v,lbl:dd.getDate()+'/'+(dd.getMonth()+1)});
+    if(v>max)max=v;
+  }
+  vals.forEach(function(x){html+='<div style="height:'+Math.max(3,(x.v/max)*100)+'%"><i>'+(x.v||'')+'</i><span>'+x.lbl+'</span></div>';});
+  bars.innerHTML=html;
+  var tot=vals.reduce(function(a,b){return a+b.v;},0);
+  document.getElementById('trendNote').textContent=tot+' visits in 14 days';
+
+  /* sources */
+  var sb=document.getElementById('srcBody'),srcs=Object.keys(S.sources),tt=0;
+  srcs.forEach(function(k){tt+=S.sources[k];});
+  sb.innerHTML=srcs.length?srcs.sort(function(a,b){return S.sources[b]-S.sources[a];}).map(function(k){
+    return '<tr><td class="src">'+k+'</td><td>'+S.sources[k]+'</td><td>'+(tt?Math.round(S.sources[k]/tt*100):0)+'%</td></tr>';
+  }).join(''):'<tr><td colspan="3" class="no">Abhi koi visit record nahi hui.</td></tr>';
+
+  /* mails */
+  document.getElementById('mailBody').innerHTML=mails.slice(0,40).map(function(m){
+    var dt=new Date(m.t);
+    return '<tr><td>'+dt.toLocaleDateString()+' · '+dt.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'})+'</td><td>'+m.to+'</td><td>'+m.c+'</td><td class="'+(m.o?'ok':'no')+'">'+(m.o?'✓ Opened':'Sent')+'</td></tr>';
+  }).join('');
+
+  /* summary */
+  document.getElementById('sumBody').innerHTML=[
+    ['Views today',S.days[d]||0],['Emails opened today',openedToday],
+    ['Likes (total)',S.likes||0],['Dislikes (total)',S.dislikes||0],
+    ['Shares (total)',S.shares||0],
+    ['Top source',Object.keys(S.sources).sort(function(a,b){return S.sources[b]-S.sources[a];})[0]||'—'],
+    ['Data mode',CFG.api?'Live (Google Sheet)':'Local browser']
+  ].map(function(r){return '<tr><td>'+r[0]+'</td><td style="text-align:right;font-weight:800">'+r[1]+'</td></tr>';}).join('');
+}
+function exportCSV(){
+  var mails=(S.mails&&S.mails.length)?S.mails:demoMails();
+  var rows=[['Metric','Value'],['Views',S.views||0],['Likes',S.likes||0],['Dislikes',S.dislikes||0],['Shares',S.shares||0],['WhatsApp clicks',S.wa||0],[],['Date','Visits']];
+  Object.keys(S.days).forEach(function(k){rows.push([k,S.days[k]]);});
+  rows.push([],['Source','Visits']);Object.keys(S.sources).forEach(function(k){rows.push([k,S.sources[k]]);});
+  rows.push([],['Sent at','Recipient','Campaign','Status']);
+  mails.forEach(function(m){rows.push([m.t,m.to,m.c,m.o?'Opened':'Sent']);});
+  var csv=rows.map(function(r){return r.map(function(c){return '"'+String(c===undefined?'':c).replace(/"/g,'""')+'"';}).join(',');}).join('\n');
+  var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));
+  a.download='abc-flyer-report-'+today()+'.csv';a.click();setTimeout(function(){URL.revokeObjectURL(a.href);},1500);
+}
+function saveApi(){var v=document.getElementById('apiUrl').value.trim();CFG.api=v;localStorage.setItem('abc_api',v);toast2(v?'Live endpoint save ho gaya ✓':'Endpoint hata diya');loadStats(true);}
+function changePass(){var p=prompt('Naya owner password likhein:',CFG.pass);if(p&&p.trim()){CFG.pass=p.trim();localStorage.setItem('abc_pass',CFG.pass);toast2('Password update ho gaya ✓');}}
+function setWa(){var n=prompt('WhatsApp number (country code ke saath, bina + ke). Misaal: 923001234567',CFG.wa);if(n&&n.trim()){CFG.wa=n.replace(/[^0-9]/g,'');localStorage.setItem('abc_wa',CFG.wa);toast2('WhatsApp number set ✓');}}
+function clearLocal(){if(confirm('Local counters reset karein?')){localStorage.removeItem(LS);localStorage.removeItem('abc_react');load();paintPublic();paintDash();toast2('Local data reset ✓');}}
+
+/* ---------- init ---------- */
+load();
+if(!sessionStorage.getItem(VISIT_KEY)){sessionStorage.setItem(VISIT_KEY,'1');trackView();}else{paintPublic();}
+if(CFG.api){api('stats',{}).then(function(d){if(d&&d.views!==undefined){S=Object.assign(blank(),d);save();paintPublic();}});}
+window.addEventListener('keydown',function(e){if(e.key==='Escape'){closeOv('loginOv');closeOv('dashOv');}});
+</script>
+</body>
+</html>
