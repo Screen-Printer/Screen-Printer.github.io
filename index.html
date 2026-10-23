@@ -975,5 +975,22 @@ if(!sessionStorage.getItem(VISIT_KEY)){sessionStorage.setItem(VISIT_KEY,'1');tra
 if(CFG.api){api('stats',{}).then(function(d){if(d&&d.views!==undefined){S=Object.assign(blank(),d);save();paintPublic();}});}
 window.addEventListener('keydown',function(e){if(e.key==='Escape'){closeOv('loginOv');closeOv('dashOv');}});
 </script>
+  // 1. Yahan YOUR_APPS_SCRIPT_URL_HERE ko mita kar apna Web App URL paste karein
+  const ENDPOINT = "https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec";
+
+  // 2. Event tracking function
+  function trackEvent(actionName) {
+    // URL se campaign ID lena (agar URL mein ho)
+    const urlParams = new URLSearchParams(window.location.search);
+    const campaignId = urlParams.get('id') || 'jan-promo';
+
+    fetch(ENDPOINT, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ action: actionName, campaign: campaignId })
+    });
+  }
+</script>
 </body>
 </html>
