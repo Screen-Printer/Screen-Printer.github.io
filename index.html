@@ -114,6 +114,9 @@ h3.serif em{font-style:italic;color:var(--brand)}
 .pn.keep{display:flex;margin-top:auto;font-size:10px;letter-spacing:2.4px;font-weight:700;color:var(--faint);
   text-transform:uppercase;padding:10px 22px 14px;align-items:center;gap:10px;justify-content:flex-end}
 .bd{padding-bottom:16px;min-height:0;overflow:hidden}
+/* every page must stay exactly inside its 500px sheet */
+.face{max-height:500px}
+.face>.bd{flex:1 1 auto;min-height:0}
 /* ---------- covers ---------- */
 .cov{position:relative;color:#FFF6E9;padding:0;justify-content:flex-end}
 .cov .bg{position:absolute;inset:0}.cov .bg img{width:100%;height:100%;object-fit:cover}
@@ -178,7 +181,17 @@ h3.serif em{font-style:italic;color:var(--brand)}
 .duo img{width:100%;height:100%;object-fit:cover;display:block}
 .duo figure::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(16,12,8,0) 40%,rgba(16,12,8,.6))}
 .duo figcaption{position:absolute;left:8px;bottom:7px;z-index:2;font:700 9px Inter,Arial,sans-serif;letter-spacing:1.2px;text-transform:uppercase;color:#FFF3D6;background:rgba(16,12,8,.6);border:1px solid rgba(255,255,255,.25);padding:4px 9px;border-radius:999px}
-.offer .bd{padding-top:12px;position:relative;z-index:1}
+.offer .bd{position:relative;z-index:1;flex:1 1 auto;height:auto;min-height:0;box-sizing:border-box;
+  display:flex;flex-direction:column;justify-content:center;gap:7px;padding:14px 18px;overflow:hidden}
+.offer h3.serif{font-size:19px!important;line-height:1.14;margin:0}
+.offer .ribbon{font-size:9px;padding:5px 12px;letter-spacing:1.8px}
+.offer .price{margin:0}
+.offer .price b{font-size:36px}
+.offer .price span{font-size:10px;line-height:1.35}
+.offer .in.small{font-size:11px!important;line-height:1.45;margin:0}
+.offer-grid{gap:4px;margin:0}
+.offer-grid div{font-size:10px;padding:5px 8px;line-height:1.25}
+.offer-why{font-size:10.5px;line-height:1.45;padding:7px 10px}
 .offer .pn{position:relative;z-index:1}
 .offer .ribbon{display:inline-block;align-self:flex-start;background:var(--gold);color:#241505;font:800 10px Inter,Arial,sans-serif;letter-spacing:2.2px;text-transform:uppercase;padding:6px 14px;border-radius:999px}
 .offer h3.serif{color:#FFF6E2;font-size:23px}
@@ -414,7 +427,7 @@ h3.serif em{font-style:italic;color:var(--brand)}
                 <span class="ribbon">★ Bumper offer · limited time ★</span>
                 <h3 class="serif">Complete business package — <em>everything launch-ready.</em></h3>
                 <div class="price"><b>$1500</b><span>one package<br>all inclusive</span></div>
-                <p class="in small" style="color:#E8D9B8">Our special package: all your business stationery and promo printing <b style="color:#fff">plus website + automation</b> — designed, printed and set up by ABC.</p>
+                <p class="in small" style="color:#E8D9B8">Our special package: all your business stationery and promo printing <b style="color:#fff">plus website + automation</b> — designed, printed and <b style="color:#fff">set up in just $1500.</b></p>
                 <div class="offer-grid">
                   <div><i>✓</i>Visiting cards</div>
                   <div><i>✓</i>Flyers</div>
@@ -427,7 +440,7 @@ h3.serif em{font-style:italic;color:var(--brand)}
                   <div><i>✓</i>Panaflex</div>
                   <div><i>✓</i>Website + automation</div>
                 </div>
-                <div class="offer-why"><b>Why it grows your business:</b> one matching design on print + online builds instant trust · one supplier, one bill, launch in days · costs far less than ordering everything separately.</div>
+                <div class="offer-why">You can also get this same kind of <b style="color:#fff">digital flyer made free of cost</b> for your local business. To get this flyer and this offer, contact us today at <b style="color:#F3C969">teez2print@gmail.com</b></div>
               </div>
             </div>
             <div class="face rear" onclick="go(-1)" aria-hidden="true"></div>
