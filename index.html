@@ -908,9 +908,23 @@ var DASH = null, PW = '';
 
 function openLogin(){
   if(!EP){
-    var u=window.prompt('Pehli baar: apni Gmail outreach script ka /exec URL paste karein','');
-    if(!u||!u.trim())return;
-    EP=u.trim();localStorage.setItem('t2p_ep',EP);
+    var u=window.prompt(
+      'Apni EMAIL SCRIPT (Teez2Print Outreach Engine) ka Web App URL paste karein.\n\n'+
+      'Kahan se milega:\n'+
+      'Apps Script kholein → Deploy → New deployment → Web app\n'+
+      '(Execute as: Me | Who has access: Anyone) → Deploy → URL copy\n\n'+
+      'URL aise dikhta hai (/exec par khatam):\n'+
+      'https://script.google.com/macros/s/AKfycb....../exec','');
+    if(u===null)return;
+    u=(u||'').trim();
+    if(!u)return;
+    if(u.indexOf('/exec')===-1){
+      alert('⚠️ Ye URL theek nahi lagta.\n\nURL "/exec" par khatam hona chahiye.\n'+
+            'Agar aapka URL "/dev" par khatam hota hai to Apps Script me\n'+
+            'Deploy → New deployment → Web app karke naya URL lein.');
+      return;
+    }
+    EP=u;localStorage.setItem('t2p_ep',EP);
   }
   document.getElementById('loginOv').classList.add('open');
   setTimeout(function(){document.getElementById('pwInput').focus();},80);
