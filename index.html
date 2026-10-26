@@ -701,7 +701,7 @@ h3.serif em{font-style:italic;color:var(--brand)}
 <div class="ov" id="loginOv" onclick="if(event.target===this)closeOv('loginOv')">
   <div class="lgc">
     <h3>Owner login</h3>
-    <p>Sirf business owner ke liye. Password daal kar apni daily email campaign ki live summary dekhen.</p>
+    <p>For the business owner only. Enter your password to view the live summary of your daily email campaign.</p>
     <input type="password" id="pwInput" placeholder="Enter dashboard password" autocomplete="current-password" onkeydown="if(event.key==='Enter')doLogin()">
     <div class="msg" id="pwMsg"></div>
     <button class="bp" id="pwBtn" onclick="doLogin()">Open dashboard</button>
@@ -759,12 +759,9 @@ h3.serif em{font-style:italic;color:var(--brand)}
         </div>
       </div>
 
-      <div class="epbox">
-        <b>Script endpoint</b> — apni Gmail outreach script ka <code>/exec</code> URL. Ise file me permanently rakhne ke liye
-        <code>index.html</code> me <code>SCRIPT_ENDPOINT</code> wali line me likh dein.
-        <input id="epInput" placeholder="https://script.google.com/macros/s/..../exec">
-        <button onclick="saveEp()">Save endpoint</button>
-      </div>
+      <p style="font-size:10.5px;color:#9A9084;text-align:center;margin:14px 0 0;letter-spacing:.3px">
+        Automated email outreach is managed by your marketing provider. This dashboard is read-only.
+      </p>
     </div>
   </div>
 </div>
@@ -854,7 +851,7 @@ if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matc
 /* ============================================================
    ABC FLYER — SIMPLE SHARE BUTTONS
    Koi dashboard nahi, koi tracking nahi, koi login nahi.
-   Sirf: WhatsApp · Facebook · Instagram · LinkedIn · Copy link
+   Only: WhatsApp · Facebook · Instagram · LinkedIn · Copy link
    ============================================================ */
 function flyerURL(){ return location.href.split('#')[0].split('?')[0]; }
 function flyerText(){
@@ -870,9 +867,9 @@ function toast2(m){
 function copyURL(msg){
   var url=flyerURL();
   if(navigator.clipboard&&navigator.clipboard.writeText){
-    navigator.clipboard.writeText(url).then(function(){toast2(msg||'Link copy ho gaya 📋');},
-      function(){window.prompt('Ye link copy karein:',url);});
-  }else{ window.prompt('Ye link copy karein:',url); }
+    navigator.clipboard.writeText(url).then(function(){toast2(msg||'Link copied to clipboard 📋');},
+      function(){window.prompt('Copy this link:',url);});
+  }else{ window.prompt('Copy this link:',url); }
 }
 function shareTo(where){
   var url=flyerURL(), txt=flyerText(), u='';
@@ -884,7 +881,7 @@ function shareTo(where){
     u='https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(url);
   }else if(where==='instagram'){
     /* Instagram web par direct share link nahi deta — link copy karke app khol dete hain */
-    copyURL('Link copy ho gaya — Instagram me paste karein 📸');
+    copyURL('Link copied — paste it in Instagram 📸');
     setTimeout(function(){ window.open('https://www.instagram.com/','_blank','noopener'); },700);
     return;
   }else{
@@ -894,38 +891,21 @@ function shareTo(where){
 }
 
 /* ============================================================
-   OWNER DASHBOARD — Gmail outreach script se connect
+   OWNER DASHBOARD  (read-only campaign reporting)
    ------------------------------------------------------------
-   ⬇⬇⬇  YAHAN APNI SCRIPT KA /exec URL PASTE KAREIN  ⬇⬇⬇
-   Misaal:
+   PROVIDER SETUP ONLY — paste the outreach script Web App URL
+   between the quotes below, then commit the file.
+   The client never sees or edits this value.
+
    var SCRIPT_ENDPOINT = 'https://script.google.com/macros/s/AKfycb.../exec';
    ============================================================ */
-var SCRIPT_ENDPOINT = '';
-/* ⬆⬆⬆ ---------------------------------------------------- ⬆⬆⬆ */
+var SCRIPT_ENDPOINT = 'https://script.google.com/macros/s/AKfycbyP7Y9E22AldOt_VI2JgZPmE7jyF_W2liyLaM3N4vsNe7lgs_LT7-s4diLOYufTP4w1/exec';
+/* ---------------------------------------------------------- */
 
-var EP = SCRIPT_ENDPOINT || localStorage.getItem('t2p_ep') || '';
+var EP = SCRIPT_ENDPOINT;
 var DASH = null, PW = '';
 
 function openLogin(){
-  if(!EP){
-    var u=window.prompt(
-      'Apni EMAIL SCRIPT (Teez2Print Outreach Engine) ka Web App URL paste karein.\n\n'+
-      'Kahan se milega:\n'+
-      'Apps Script kholein → Deploy → New deployment → Web app\n'+
-      '(Execute as: Me | Who has access: Anyone) → Deploy → URL copy\n\n'+
-      'URL aise dikhta hai (/exec par khatam):\n'+
-      'https://script.google.com/macros/s/AKfycb....../exec','');
-    if(u===null)return;
-    u=(u||'').trim();
-    if(!u)return;
-    if(u.indexOf('/exec')===-1){
-      alert('⚠️ Ye URL theek nahi lagta.\n\nURL "/exec" par khatam hona chahiye.\n'+
-            'Agar aapka URL "/dev" par khatam hota hai to Apps Script me\n'+
-            'Deploy → New deployment → Web app karke naya URL lein.');
-      return;
-    }
-    EP=u;localStorage.setItem('t2p_ep',EP);
-  }
   document.getElementById('loginOv').classList.add('open');
   setTimeout(function(){document.getElementById('pwInput').focus();},80);
 }
@@ -934,13 +914,14 @@ function msg(t,cls){var m=document.getElementById('pwMsg');m.textContent=t;m.cla
 
 function doLogin(){
   var pw=document.getElementById('pwInput').value;
-  if(!pw){msg('Password likhein.','err');return;}
+  if(!pw){msg('Please enter your password.','err');return;}
+  if(!EP){msg('Dashboard is not available right now. Please contact your provider.','err');return;}
   var btn=document.getElementById('pwBtn');
   btn.disabled=true;btn.innerHTML='<span class="spin"></span>Checking…';
   msg('','');
   fetchDash(pw).then(function(d){
     btn.disabled=false;btn.textContent='Open dashboard';
-    if(!d){msg('Connection nahi bana. Endpoint URL check karein (Deploy → Who has access: Anyone).','err');return;}
+    if(!d){msg('Unable to reach the server. Please try again in a moment.','err');return;}
     if(d.error){msg(d.error,'err');return;}
     PW=pw;DASH=d;
     document.getElementById('pwInput').value='';
@@ -967,10 +948,6 @@ function loadDash(){
   });
 }
 function logout(){PW='';DASH=null;closeOv('dashOv');}
-function saveEp(){
-  var v=document.getElementById('epInput').value.trim();
-  if(v){EP=v;localStorage.setItem('t2p_ep',v);toast2('Endpoint save ho gaya ✓');}
-}
 
 function paintDash(){
   var d=DASH||{},set=function(id,v){var e=document.getElementById(id);if(e)e.textContent=v;};
@@ -979,7 +956,6 @@ function paintDash(){
   set('kFail',d.totalFailed||0);set('kRev',d.reviewRequired||0);set('kRem',d.remaining||0);
   set('kPct',target?Math.round(sent/target*100)+'%':'0%');
   set('updAt',d.updatedAt?('Updated '+new Date(d.updatedAt).toLocaleString()):'');
-  document.getElementById('epInput').value=EP;
 
   /* daily chart — last 14 days */
   var daily=d.daily||{},html='',max=1,vals=[];
@@ -1023,7 +999,7 @@ function renderLog(){
     return '<tr><td>'+(i+1)+'</td><td>'+esc(r.name)+'</td><td class="em">'+esc(r.email)+'</td><td>'+esc(r.dateSent)+
       '</td><td>'+esc(r.phone)+'</td><td>'+esc(r.address)+'</td><td><span class="src">'+esc(r.source)+
       '</span></td><td>'+esc(r.template)+'</td><td>'+(url?'<a href="'+esc(url)+'" target="_blank" rel="noopener" style="color:#2563EB">Open</a>':'—')+'</td></tr>';
-  }).join(''):'<tr><td colspan="9" style="color:#9A9084;padding:14px">Koi record nahi mila.</td></tr>';
+  }).join(''):'<tr><td colspan="9" style="color:#9A9084;padding:14px">No records found.</td></tr>';
 }
 function exportCSV(){
   var d=DASH||{},list=d.sentLog||[];
